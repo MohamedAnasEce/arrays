@@ -1,0 +1,75 @@
+//You are given an array of integers. Your task is to rotate the array to the right by k positions.
+
+Input Format
+
+The first line contains an integer n, representing the size of the array.
+
+The second line contains n space-separated integers, representing the array elements.
+
+The third line contains an integer k, representing the number of right rotations.
+
+Constraints
+
+NA
+
+Output Format
+
+Print the array after rotating it right by k positions.
+
+Sample Input 0
+
+5
+1 2 3 4 5
+2
+Sample Output 0
+
+4 5 1 2 3
+Explanation 0
+
+After rotating the array [1, 2, 3, 4, 5] by 2 positions to the right, it becomes [4, 5, 1, 2, 3].
+
+Sample Input 1
+
+4
+10 20 30 40
+1
+Sample Output 1
+
+40 10 20 30
+Explanation 1
+
+After rotating the array [10, 20, 30, 40] by 1 position to the right, it becomes [40, 10, 20, 30].//
+import java.util.*;
+public class Ern
+{
+    static void reverse(int []arr,int l,int r)
+    {
+        while(l<r)
+        {
+            int t=arr[l];
+            arr[l]=arr[r];
+            arr[r]=t;
+            l++;
+            r--;
+        }
+    } 
+    public static void main(String args[])
+    {
+        
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+            
+        }
+        int k=sc.nextInt();
+        k=k%n;
+        reverse(arr,0,n-1);
+        reverse(arr,0,k-1);
+        reverse(arr,k,n-1);
+        
+       for(int i=0;i<n;System.out.print(arr[i++] + " "));
+    } 
+}
