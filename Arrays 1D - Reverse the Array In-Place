@@ -1,0 +1,57 @@
+Given an array of integers, reverse the array in-place and print the updated array.
+
+Input Format
+
+First line: An integer n (size of the array).
+
+Second line: n space-separated integers.
+
+Constraints
+
+NA
+
+Output Format
+
+Print the elements of the reversed array separated by spaces.
+
+Sample Input 0
+
+5
+1 2 3 4 5
+Sample Output 0
+
+5 4 3 2 1
+Sample Input 1
+
+4
+10 20 30 40
+Sample Output 1
+
+40 30 20 10
+import java.util.*;
+public class Sol
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]= new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int l=0;int r=n-1;
+        while(l<r){
+            int t=arr[l];
+           
+            arr[l]=arr[r];
+            arr[r]=t;
+            l++;
+            r--;
+        }
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
