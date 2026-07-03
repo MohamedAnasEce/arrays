@@ -1,0 +1,67 @@
+You are given an array of integers. An element is called a leader if it is greater than or equal to all the elements to its right side. Your task is to print all the leader elements in the array.
+
+Input Format
+
+The first line contains an integer n, representing the size of the array.
+
+The second line contains n space-separated integers, representing the array elements.
+
+Constraints
+
+NA
+
+Output Format
+
+Print all the leader elements in the array, separated by space.
+
+Sample Input 0
+
+6
+16 17 4 3 5 2
+Sample Output 0
+
+17 5 2
+Explanation 0
+
+Leaders are 17, 5, 2 because each is greater than or equal to all elements to its right.
+
+Sample Input 1
+
+5
+10 9 8 7 6
+Sample Output 1
+
+10 9 8 7 6
+Explanation 1
+
+All elements are leaders since each one is greater than everything to its right.
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner (System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        ArrayList <Integer>list=new ArrayList<>();
+        int leader=arr[n-1];
+        list.add(leader);
+        for(int i=n-2;i>=0;i--)
+        {
+            if(arr[i]>leader)
+            {
+                leader=arr[i];
+                list.add(leader);
+            }
+        }
+        Collections.reverse(list);
+        for(int i:list) System.out.print(i+" ");
+       
+    }
+}
